@@ -1,24 +1,22 @@
-# Stage 1: Build with Maven and Java 21
+# Multi-stage Docker build for RepoMind Spring Boot Backend
 FROM maven:3.9.8-eclipse-temurin-21 AS build
 WORKDIR /app
 
-# Copy pom.xml and cache dependencies
-COPY pom.xml .
+# Cache dependencies
+COPY backend/pom.xml .
 RUN mvn dependency:go-offline -B
 
-# Copy source code and build production artifact
-COPY src ./src
+# Copy backend source and package executable JAR
+COPY backend/src ./src
 RUN mvn clean package -DskipTests
 
-# Stage 2: Runtime with lightweight Java 21 JRE
+# Runtime Stage
 FROM eclipse-temurin:21-jre
 WORKDIR /app
 
-# Create non-root system user for security
 RUN useradd -m -u 1001 repomind
 USER repomind
 
-# Copy executable jar from build stage
 COPY --from=build /app/target/repomind-backend-1.0.0.jar app.jar
 
 ENV SERVER_PORT=8000
