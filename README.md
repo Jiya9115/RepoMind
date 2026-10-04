@@ -1,35 +1,5 @@
 # RepoMind — AI-Powered Repository Intelligence Platform
 
-> **Your codebase, understood.**
-
-RepoMind is a production-grade software engineering intelligence platform designed to analyze, visualize, and explain unfamiliar codebases. Built with an enterprise-grade **Java 21 / Spring Boot 3** backend and a **React 18 / TypeScript** frontend with a modern **light blue and crisp white** visual design, RepoMind executes real Abstract Syntax Tree (AST) parsing via JavaParser, generates interactive dependency and architecture maps with React Flow, audits security vulnerabilities and technical debt hotspots, and provides grounded AI assistance with exact line citations.
-
----
-
-## 📋 TABLE OF CONTENTS
-1. [PROJECT OVERVIEW](#project-overview)
-2. [FEATURES](#features)
-3. [TECH STACK](#tech-stack)
-4. [FOLDER STRUCTURE](#folder-structure)
-5. [REQUIREMENTS](#requirements)
-6. [DATABASE SETUP](#database-setup)
-7. [ENVIRONMENT VARIABLES](#environment-variables)
-8. [HOW TO RUN IN VS CODE](#how-to-run-in-vs-code)
-9. [BACKEND COMMAND](#backend-command)
-10. [FRONTEND COMMAND](#frontend-command)
-11. [HOW TO RUN DEMO MODE](#how-to-run-demo-mode)
-12. [HOW TO LOGIN](#how-to-login)
-13. [HOW TO DEBUG BACKEND](#how-to-debug-backend)
-14. [HOW TO DEBUG FRONTEND](#how-to-debug-frontend)
-15. [COMMON ERRORS AND FIXES](#common-errors-and-fixes)
-16. [HOW TO RUN TESTS](#how-to-run-tests)
-17. [HOW TO BUILD FOR PRODUCTION](#how-to-build-for-production)
-18. [DOCKER SETUP](#docker-setup)
-19. [API ENDPOINTS](#api-endpoints)
-20. [PROJECT ARCHITECTURE](#project-architecture)
-
----
-
 ## 🚀 PROJECT OVERVIEW
 
 RepoMind enables developers, engineering managers, and technical architects to understand complex, unfamiliar codebases in minutes. The platform runs static code analysis without executing untrusted user code, producing:
