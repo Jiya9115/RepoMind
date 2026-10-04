@@ -1,0 +1,11 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/demoshop}
+    username: ${DATABASE_USERNAME:demoshop}
+    password: ${DATABASE_PASSWORD:demoshop}
+  jpa:
+    hibernate:
+      ddl-auto: update

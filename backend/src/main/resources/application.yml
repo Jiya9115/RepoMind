@@ -1,0 +1,53 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: repomind-backend
+
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/repomind}
+    username: ${DATABASE_USERNAME:repomind}
+    password: ${DATABASE_PASSWORD:repomind}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 2
+      connection-timeout: 3000
+      initialization-fail-timeout: -1
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: false
+    show-sql: false
+
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    locations: classpath:db/migration
+
+repomind:
+  jwt:
+    secret: ${JWT_SECRET:repomind-super-secret-jwt-token-key-change-in-production-2026}
+    expiration-ms: 86400000 # 24 hours
+  ai:
+    gemini-api-key: ${GEMINI_API_KEY:}
+    demo-mode: ${DEMO_MODE:true}
+  demo:
+    repo-path: ${DEMO_REPO_PATH:../demo-repository/demo-shop}
+  cors:
+    allowed-origins:
+      - "http://localhost:5173"
+      - "http://localhost:3000"
+      - "http://127.0.0.1:5173"
+      - "${FRONTEND_URL:http://localhost:5173}"
+
+logging:
+  level:
+    com.repomind: INFO
+    org.springframework.security: WARN
+    org.hibernate: WARN
